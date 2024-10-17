@@ -5,7 +5,7 @@ import empleadosRouter from './empleado.js'
 
 const router = Router()
 
-router.use('/tienda',tiendaRouter)
+router.use('/tiendas',tiendaRouter)
 router.use('/productos',productoRouter)
 router.use('/empleados',empleadosRouter)
 

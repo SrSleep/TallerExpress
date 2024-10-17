@@ -22,9 +22,7 @@ let empleadosPorCargo = async (req, res) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 let precioMenor = async (req, res) => {
@@ -36,9 +34,7 @@ let precioMenor = async (req, res) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 let precioMayor = async (req, res) => {
@@ -50,9 +46,7 @@ let precioMayor = async (req, res) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 

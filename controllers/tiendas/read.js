@@ -13,7 +13,7 @@ let tiendas = async (req, res) => {
     }
 }
 
-let tiendaPorDireccion = async (req, res) => {
+let tiendaPorDireccion = async (req, res, next) => {
     try {
 
         let direccion = new RegExp(req.params.texto, 'i')
@@ -22,9 +22,7 @@ let tiendaPorDireccion = async (req, res) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 

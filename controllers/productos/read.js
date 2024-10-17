@@ -22,9 +22,7 @@ let productosPorNombre = async (req, res) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -33,13 +31,9 @@ let precioMenor = async (req, res) => {
 
         let precio = req.params.numero
         let all = await Producto.find({ precio: { $lt: precio } })
-        return res.status(200).json({
-            response: all
-        })
+        next(error)
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -52,9 +46,7 @@ let precioMayor = async (req, res) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 

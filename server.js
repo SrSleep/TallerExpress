@@ -4,6 +4,8 @@ import "./config/database.js"
 import cors from 'cors'
 import morgan from "morgan";
 import mainRouter from './router/index.js'
+import not_found_handler from "./middlewares/not_found_handler.js";
+import error_handler from "./middlewares/error_handler.js";
 
  const server  = express()
 
@@ -17,6 +19,8 @@ server.use(cors())//permite que node  me permita entrar con la key sino no deja 
 server.use(morgan('dev'))// para controlar y ver las trasas de las peticiones el sabe cuando es dev como localhost
 
 server.use('/api', mainRouter)
+server.use(not_found_handler)
+server.use(error_handler)
 
 server.listen(PORT, ready)
 
