@@ -1,19 +1,17 @@
 import Empleado from '../../models/Empleado.js'
 
-let empleados = async (req, res) => {
+let empleados = async (req, res, next) => {
     try {
         let todos = await Empleado.find()
         return res.status(200).json({
             response: todos
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
-let empleadosPorCargo = async (req, res) => {
+let empleadosPorCargo = async (req, res, next) => {
     try {
 
         let cargo = new RegExp(req.params.texto, 'i')
@@ -25,7 +23,7 @@ let empleadosPorCargo = async (req, res) => {
         next(error)
     }
 }
-let precioMenor = async (req, res) => {
+let precioMenor = async (req, res, next) => {
     try {
 
         let salario = req.params.numero
@@ -37,7 +35,7 @@ let precioMenor = async (req, res) => {
         next(error)
     }
 }
-let precioMayor = async (req, res) => {
+let precioMayor = async (req, res, next) => {
     try {
 
         let salario = req.params.numero

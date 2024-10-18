@@ -1,6 +1,6 @@
 import Proveedor from "../../models/Proveedor.js";
 
-let crearProveedor = async (req, res) => {
+let crearProveedor = async (req, res, next) => {
     try {
         let agregarProveedor = req.body
         let proveedor = await Proveedor.create(agregarProveedor)
@@ -12,7 +12,7 @@ let crearProveedor = async (req, res) => {
     }
 }
 
-let muchosProveedores = async (req, res) => {
+let muchosProveedores = async (req, res, next) => {
     try {
         let arrayProveedor = req.body
         let variosProveedores = await Proveedor.insertMany(arrayProveedor)

@@ -1,19 +1,17 @@
 import Producto from '../../models/Producto.js'
 
-let productos = async (req, res) => {
+let productos = async (req, res, next) => {
     try {
         let all = await Producto.find()
         return res.status(200).json({
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
-let productosPorNombre = async (req, res) => {
+let productosPorNombre = async (req, res, next) => {
     try {
 
         let nombre = new RegExp(req.params.texto, 'i')
@@ -26,7 +24,7 @@ let productosPorNombre = async (req, res) => {
     }
 }
 
-let precioMenor = async (req, res) => {
+let precioMenor = async (req, res, next) => {
     try {
 
         let precio = req.params.numero
@@ -39,7 +37,7 @@ let precioMenor = async (req, res) => {
     }
 }
 
-let precioMayor = async (req, res) => {
+let precioMayor = async (req, res, next) => {
     try {
 
         let precio = req.params.numero

@@ -1,15 +1,13 @@
 import Tienda from '../../models/Tienda.js'
 
-let tiendas = async (req, res) => {
+let tiendas = async (req, res, next) => {
     try {
         let todos = await Tienda.find()
         return res.status(200).json({
             response: todos
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -26,7 +24,7 @@ let tiendaPorDireccion = async (req, res, next) => {
     }
 }
 
-let tiendaPornombre = async (req, res) => {
+let tiendaPornombre = async (req, res, next) => {
     try {
 
         let nombre = new RegExp(req.params.texto, 'i')

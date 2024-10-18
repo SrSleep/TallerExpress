@@ -1,8 +1,8 @@
-import Proveedor from "../../models/Proveedor.js";
+import Cliente from "../../models/Cliente.js";
 
-let proveedor = async (req, res, next) => {
+let cliente = async (req, res, next) => {
     try {
-        let todos = await Proveedor.find()
+        let todos = await Cliente.find()
         return res.status(200).json({
             response: todos
         })
@@ -11,11 +11,11 @@ let proveedor = async (req, res, next) => {
     }
 }
 
-let proveedorPorNombre = async (req, res, next) => {
+let clientePorNombre = async (req, res, next) => {
     try {
 
         let nombre = new RegExp(req.params.texto, 'i')
-        let resultado = await Proveedor.find({ nombre: nombre })
+        let resultado = await Cliente.find({ nombre: nombre })
         return res.status(200).json({
             response: resultado
         })
@@ -24,10 +24,11 @@ let proveedorPorNombre = async (req, res, next) => {
     }
 }
 
-let telefonoProveedor = async (req, res, next) => {
+let clienteVetado = async (req, res, next) => {
     try {
-        let telefono = req.params.numero
-        let resultado = await Proveedor.find({ telefono: telefono })
+  
+        let vetado = req.params.texto === 'vetado'? true :false       
+        let resultado = await Cliente.find({ vetado: vetado })
         return res.status(200).json({
             response: resultado
         })
@@ -36,11 +37,11 @@ let telefonoProveedor = async (req, res, next) => {
     }
 }
 
-let proveedorCorreo = async (req, res, next) => {
+let clientePorCorreo = async (req, res, next) => {
     try {
 
         let correo = new RegExp(req.params.texto, 'i')
-        let resultado = await Proveedor.find({ correo: correo })
+        let resultado = await Cliente.find({ correo: correo })
         return res.status(200).json({
             response: resultado
         })
@@ -49,4 +50,5 @@ let proveedorCorreo = async (req, res, next) => {
     }
 }
 
-export { proveedor, proveedorPorNombre, telefonoProveedor, proveedorCorreo }
+
+export { cliente, clientePorNombre, clienteVetado ,clientePorCorreo }

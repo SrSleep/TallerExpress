@@ -1,6 +1,6 @@
 import Tienda from '../../models/Tienda.js'
 
-let crearTienda = async (req, res) => {
+let crearTienda = async (req, res, next) => {
     try {
         let agregarTienda = req.body
         let tienda = await Tienda.create(agregarTienda)
@@ -12,7 +12,7 @@ let crearTienda = async (req, res) => {
     }
 }
 
-let muchasTiendas = async (req, res) => {
+let muchasTiendas = async (req, res, next) => {
     try {
         let arrayTienda = req.body
         let variasTiendas = await Tienda.insertMany(arrayTienda)

@@ -48,7 +48,6 @@ const clientes = [
     { nombre: "Ana González", telefono: 3134567890, correo: "ana.gonzalez@example.com", direccion: "Calle 15 #8-10, Barranquilla", vetado: false },
     { nombre: "Felipe López", telefono: 3145678901, correo: "felipe.lopez@example.com", direccion: "Avenida 3 #20-25, Bucaramanga", vetado: false },
     { nombre: "Patricia Silva", telefono: 3156789012, correo: "patricia.silva@example.com", direccion: "Calle 8 #5-10, Cali", vetado: true },
-    { nombre: "Esteban Cárdenas", telefono: 3167890123, correo: "esteban.cardenas@example.com", direccion: "Carrera 7 #45-50, Bogotá", vetado: false }
 ];
 
 Cliente.insertMany(clientes)
