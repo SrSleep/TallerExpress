@@ -1,5 +1,5 @@
 const error_handler = (error, req, res, next) => {  
-    console.log(error instanceof SyntaxError );
+    console.log(error);
     console.log(error.message);
     console.log(error.status);
     

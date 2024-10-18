@@ -6,9 +6,9 @@ const schema = new Schema({
     telefono: { type: Number, required: true },
     correo: { type: String, required: true },
     direccion: { type: String, required: true },
-    vetado: { type: Boolean, default: false } // Campo vetado
+    vetado: { type: Boolean, default: false }
 }, {
-    timestamps: true // Mongoose manejará createdAt y updatedAt
+    timestamps: true
 });
 
 let  Cliente = model(collection, schema);

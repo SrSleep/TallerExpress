@@ -10,5 +10,5 @@ const schema = new Schema({
     timestamps: true
 })
 
-let Provedor = model(collection, schema)
-export default Provedor
+let Proveedor = model(collection, schema)
+export default Proveedor

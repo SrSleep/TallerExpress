@@ -31,7 +31,9 @@ let precioMenor = async (req, res) => {
 
         let precio = req.params.numero
         let all = await Producto.find({ precio: { $lt: precio } })
-        next(error)
+        return res.status(200).json({
+            response: all
+        })
     } catch (error) {
         next(error)
     }

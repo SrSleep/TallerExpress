@@ -6,6 +6,7 @@ import morgan from "morgan";
 import mainRouter from './router/index.js'
 import not_found_handler from "./middlewares/not_found_handler.js";
 import error_handler from "./middlewares/error_handler.js";
+import counter_petition from "./middlewares/counter_petition.js";
 
  const server  = express()
 
@@ -18,7 +19,11 @@ server.use(express.urlencoded({ extended: true }))// permite trabjar los datos p
 server.use(cors())//permite que node  me permita entrar con la key sino no deja entrar a nadie
 server.use(morgan('dev'))// para controlar y ver las trasas de las peticiones el sabe cuando es dev como localhost
 
+server.use(counter_petition)
 server.use('/api', mainRouter)
+
+
+
 server.use(not_found_handler)
 server.use(error_handler)
 
